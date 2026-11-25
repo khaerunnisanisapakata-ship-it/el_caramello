@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4a1908">
+  <title>El Caramelo Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-mark"><img src="assets/logo-el-caramelo.jpeg" alt="Logo El Caramelo"></div>
+      <div class="brand-copy">
+        <span class="eyebrow">SWEET MOMENTS, SWEETER MEMORIES</span>
+        <h1>EL CARAMELO <span>PHOTOBOOTH</span></h1>
+        <p>Abadikan momen manismu bersama kami!</p>
+      </div>
+      <div class="sparkle">✦</div>
+    </header>
+
+    <main>
+      <section class="welcome-panel" id="welcomePanel">
+        <div class="welcome-copy">
+          <span class="eyebrow">WELCOME TO OUR SWEET STUDIO</span>
+          <h2>Make your moment<br><em>extra sweet!</em></h2>
+          <p>Ambil foto seru bersama El Caramelo dan bawa pulang kenangan manismu.</p>
+          <button class="btn btn-primary start-big" id="enterBooth">✦ START PHOTOBOOTH ✦</button>
+          <div class="welcome-note">🍮 Choose your frame · Smile · Capture · Download</div>
+        </div>
+        <div class="welcome-art">
+          <img class="welcome-girl girl-left" src="assets/mascot-1.png" alt="Maskot El Caramelo">
+          <div class="flan-sticker">🍮<span>sweet<br>memory!</span></div>
+          <img class="welcome-girl girl-right" src="assets/mascot-2.png" alt="Maskot El Caramelo">
+        </div>
+      </section>
+
+      <section class="booth-screen hidden" id="boothScreen">
+        <div class="layout">
+          <section class="booth-card">
+            <div class="section-heading">
+              <div><span class="eyebrow">STEP 1 · CHOOSE YOUR FRAME</span><h2>Pilih Layout Foto</h2></div>
+              <span class="live-pill"><i></i> SWEET STUDIO</span>
+            </div>
+            <div class="layout-options" role="group" aria-label="Pilihan layout">
+              <button class="layout-option active" data-layout="1"><span class="layout-icon one"><i></i></span><b>1 FOTO</b><small>Satu pose terbaik</small></button>
+              <button class="layout-option" data-layout="2"><span class="layout-icon two"><i></i><i></i></span><b>2 FOTO</b><small>Photo strip</small></button>
+              <button class="layout-option" data-layout="4"><span class="layout-icon four"><i></i><i></i><i></i><i></i></span><b>4 FOTO</b><small>Photo collage</small></button>
+            </div>
+
+            <div class="section-heading camera-heading">
+              <div><span class="eyebrow">STEP 2 · GET READY</span><h2>Camera Studio</h2></div>
+              <span class="shot-counter" id="shotCounter">0 / 1 foto</span>
+            </div>
+            <div class="camera-wrap">
+              <video id="video" autoplay playsinline muted></video>
+              <div class="camera-placeholder" id="cameraPlaceholder">
+                <div class="camera-icon">📸</div><h3>Your sweet pose starts here!</h3>
+                <p>Aktifkan kamera untuk memulai sesi foto.</p>
+              </div>
+              <div class="camera-tag">EL CARAMELO • SWEET STUDIO</div>
+              <div class="countdown" id="countdown"></div>
+            </div>
+            <div class="controls">
+              <button class="btn btn-outline" id="startCamera">◉ Aktifkan Kamera</button>
+              <button class="btn btn-primary" id="capture" disabled>✦ Mulai Foto</button>
+              <button class="btn btn-light" id="retake" disabled>↻ Ulangi Sesi</button>
+            </div>
+            <p class="hint" id="status">Pilih layout, lalu aktifkan kamera. Foto akan diambil sesuai jumlah layout.</p>
+          </section>
+
+          <aside class="result-card">
+            <div class="section-heading">
+              <div><span class="eyebrow">STEP 3 · YOUR SWEET MEMORY</span><h2>Hasil Photobooth</h2></div><span class="heart">♥</span>
+            </div>
+            <div class="result-preview" id="resultPreview">
+              <div class="empty-result"><span>🍮</span><strong>Ready for your photo?</strong><small>Hasil fotomu akan muncul di sini.</small></div>
+            </div>
+            <div class="qr-area" id="qrArea">
+              <div class="qr-placeholder">▦</div><div><strong>QR Code Download</strong><p>QR muncul setelah foto selesai dibuat.</p></div>
+            </div>
+            <a class="btn btn-download disabled" id="downloadLink" href="#" download="el-caramelo-photo.png">↓ DOWNLOAD FOTO</a>
+            <p class="small-note">Scan QR menggunakan kamera HP untuk mengunduh foto.</p>
+            <button class="back-link" id="backHome">← Kembali ke halaman awal</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer>MADE WITH <span>♥</span> & CARAMEL — EL CARAMELO PHOTOBOOTH</footer>
+  </div>
+
+  <canvas id="photoCanvas" width="1200" height="1600" hidden></canvas>
+  <canvas id="shotCanvas" hidden></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
